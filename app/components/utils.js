@@ -22,3 +22,7 @@ export const EmptyState = ({ error }) => {
     </div>
   );
 };
+
+export const apiKey = "APIGc8Sg5RmH99m";
+export const apiSecret = "x3KMpg2QlwyPGse2C7Y7ZizmAAzeaTS2Tddzt6dumfKB";
+export const wsUrl = "wss://osmo-clone-wz33hjof.livekit.cloud";

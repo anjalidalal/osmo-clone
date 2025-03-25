@@ -2,9 +2,7 @@
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { EmptyState } from "./utils";
-
-const LIVEKIT_URL = "wss://osmo-clone-wz33hjof.livekit.cloud";
+import { EmptyState, wsUrl } from "./utils";
 
 const LiveKitVideo = ({ room, name }) => {
   const [token, setToken] = useState(null);
@@ -61,7 +59,7 @@ const LiveKitVideo = ({ room, name }) => {
 
   return (
     <LiveKitRoom
-      serverUrl={LIVEKIT_URL}
+      serverUrl={wsUrl}
       token={token}
       connect={true}
       onDisconnected={() => {
