@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AccessToken } from 'livekit-server-sdk';
 import { apiKey, apiSecret, wsUrl } from './../../components/utils';
 
-export const revalidate = 0;
-
 export async function GET(req: NextRequest) {
   const room = req.nextUrl.searchParams.get('room');
   const username = req.nextUrl.searchParams.get('username');
