@@ -9,9 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@livekit/components-react": "^2.8.1",
+    "@livekit/components-styles": "^1.1.4",
+    "livekit-client": "^2.9.8",
+    "livekit-server-sdk": "^2.10.2",
     "next": "15.2.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "swiper": "^11.2.6"
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.13",
+    "@types/react": "19.0.12",
+    "typescript": "5.8.2"
   }
 }

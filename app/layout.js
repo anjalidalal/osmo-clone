@@ -1,5 +1,4 @@
 import "./globals.css";
-import Header from "./components/Header";
 
 export const metadata = {
   title: "Osmo — Start building websites people remember",
@@ -10,7 +9,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body style={{ fontFamily: "PP Neue Montreal, Arial, sans-serif" }}>
-        <Header/>
         {children}
       </body>
     </html>

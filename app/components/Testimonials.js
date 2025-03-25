@@ -1,12 +1,5 @@
-"use client";
-import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
+import React from "react";
 
-import { Autoplay, Navigation, Pagination, Thumbs } from "swiper/modules";
 import Image from "next/image";
 import avatr1 from "./../../public/avatar_1.png";
 import avatr2 from "./../../public/avatar_2.png";
@@ -45,8 +38,6 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
   return (
     <div className="testimonial-container">
       <h1 className="title">
@@ -54,22 +45,11 @@ export default function Testimonials() {
         better.
       </h1>
       <p style={{color: "#818180", fontSize: "16px", fontWeight: "500", marginBottom: "20px"}}>Trusted by:</p>
-      <Swiper
-        onSwiper={setThumbsSwiper}
-        spaceBetween={10}
-        autoplay={true}
-        loop={true}
-        speed={700}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          1024: { slidesPerView: 4 },
-        }}
-        watchSlidesProgress
-        modules={[Thumbs]}
+      <section
         className="avatar-swiper"
       >
         {testimonials.map((person, index) => (
-          <SwiperSlide key={index} className="avatar-slide">
+          <div key={index} className="avatar-slide">
             <Image
               src={person.image}
               alt={person.name}
@@ -77,27 +57,14 @@ export default function Testimonials() {
               height={50}
               style={{ width: "24px", height: "24px" }}
             />
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
-
-      {/* Testimonial Cards */}
-      <Swiper
-        speed={700}
-        modules={[Navigation, Thumbs, Pagination]}
-        breakpoints={{
-          640: { slidesPerView: 3 },
-          1024: { slidesPerView: 2 },
-          1280: { slidesPerView: 4 },
-        }}
-        spaceBetween={30}
-        navigation={true}
-        loop={true}
-        thumbs={{ swiper: thumbsSwiper }}
+      </section>
+      <section
         className="testimonial-swiper"
       >
         {testimonials.map((person, index) => (
-          <SwiperSlide key={index}>
+          <section key={index}>
             <div className="testimonial-card">
               <p className="testimonial-text">"{person.text}"</p>
               <div className="testimonial-user">
@@ -115,9 +82,9 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-          </SwiperSlide>
+          </section>
         ))}
-      </Swiper>
+      </section>
     </div>
   );
 }

@@ -22,8 +22,9 @@ body {
   display: flex;
   justify-content: center;
   margin-bottom: 55px;
+  gap: 20px;
 }
-.swiper-slide .avatar-slide {
+.avatar-slide {
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -36,15 +37,6 @@ body {
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer !important;
-}
-
-.swiper-slide {
-  flex-shrink: 0;
-  width: auto !important;
-  height: auto !important;
-  position: relative;
-  transition-property: transform;
-  display: block;
 }
 
 .avatar-slide:hover {
@@ -72,30 +64,10 @@ body {
   text-align: center;
   max-width: 690px;
 }
-.swiper {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden !important;
-  list-style: none;
-  padding: 0;
-  z-index: 1;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-.swiper-wrapper {
-  position: relative;
-  z-index: 1;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  transition-property: transform;
-  box-sizing: content-box;
-  overflow: hidden !important;
-}
-.testimonial-swiper .swiper-wrapper .swiper-slide {
+.testimonial-swiper {
   margin: 0px 15px !important;
+  display: flex;
+  gap: 24px;
 }
 .testimonial-text {
   font-size: 16px;
@@ -142,22 +114,155 @@ body {
   font-weight: 400;
   line-height: 1;
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-.swiper-button-prev,
-.swiper-button-next {
+.popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  width: 220px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.startBtn {
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.closeBtn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.closeBtn button {
+  border: none;
+  border-radius: 100%;
+  font-size: 12px;
+  background: rgba(128, 128, 128, 0.678);
+  color: #efeeec;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+}
+.salesAgentContainer {
+  background-color: black;
+  color: #efeeec;
+  padding: 26px;
+  box-sizing: border-box;
+}
+.salesAgentContainer h1 {
+  font-size: 38px !important;
+  font-weight: 500;
+  margin: 0px 0px 15px 0px;
+  text-align: center;
+}
+
+.lk-chat,
+.lk-button.lk-chat-toggle {
   display: none !important;
+}
+.lk-participant-tile[data-lk-video-muted="true"][data-lk-source="camera"]
+  .lk-participant-placeholder {
+  opacity: 1;
+  background: #efeeec98 !important;
+  padding: 40px !important;
+}
+.lk-focus-layout {
+  display: block !important;
+}
+
+.lk-toast-connection-state.lk-toast {
+  background-color: #efeeec !important;
+  color: #111;
+  position: fixed !important;
+  bottom: 20% !important;
+  left: 50% !important;
+  margin-top: 160px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  width: 500px !important;
+  border-radius: 16px;
 }
 
 @media (max-width: 768px) {
-  .testimonial-swiper .swiper-wrapper {
+  .testimonial-swiper {
     flex-direction: column !important;
     overflow: hidden !important;
     gap: 20px !important;
   }
-  .testimonial-swiper .swiper-wrapper .swiper-slide {
+  .testimonial-swiper {
     margin: 0 !important;
   }
   .title {
     font-size: 45px;
+  }
+  .lk-participant-media-video {
+    height: 400px !important;
+  }
+  .lk-focus-layout-wrapper {
+    height: 400px !important;
+  }
+  .lk-participant-tile[data-lk-video-muted="true"][data-lk-source="camera"]
+    .lk-participant-placeholder {
+    height: 400px !important;
+  }
+  .salesAgentContainer h1 {
+    font-size: 30px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .salesAgentContainer {
+    padding: 30px 80px;
+  }
+  .lk-participant-media-video {
+    height: 600px !important;
+  }
+  .lk-focus-layout-wrapper {
+    height: 600px !important;
+  }
+  .lk-participant-tile[data-lk-video-muted="true"][data-lk-source="camera"]
+    .lk-participant-placeholder {
+    height: 600px !important;
+  }
+  .input {
+    width: 320px;
+  }
+  .popup {
+    width: 90%;
   }
 }
