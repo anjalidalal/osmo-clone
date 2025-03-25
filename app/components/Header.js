@@ -51,9 +51,9 @@ const Header = () => {
         </a>
         <nav className={styles.nav}>
           <Link href="/">Home</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/updates">Updates</Link>
-          <Link href="/faq">FAQ</Link>
+          <Link href="#">Pricing</Link>
+          <Link href="#">Updates</Link>
+          <Link href="#">FAQ</Link>
         </nav>
         <div className={styles.actions}>
           <button className={styles.login}>Log in</button>
