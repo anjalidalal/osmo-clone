@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { AccessToken } from 'livekit-server-sdk';
 import { apiKey, apiSecret, wsUrl } from './../../components/utils';
 
-// Do not cache endpoint result
 export const revalidate = 0;
 
 export async function GET(req: NextRequest) {
