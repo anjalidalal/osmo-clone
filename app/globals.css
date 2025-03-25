@@ -1,3 +1,56 @@
+:root {
+  --size-unit: 16;
+  --size-container-ideal: 1440;
+  --size-container-min: 992px;
+  --size-container-max: 1920px;
+  --size-container: clamp(
+    var(--size-container-min),
+    100vw,
+    var(--size-container-max)
+  );
+  --size-font: calc(
+    var(--size-container) / (var(--size-container-ideal) / var(--size-unit))
+  );
+  --cubic-default: cubic-bezier(0.625, 0.05, 0, 1);
+  --duration-default-double: 1.6s;
+  --duration-default-onehalf: 1.2s;
+  --duration-default: 0.8s;
+  --duration-default-half: 0.4s;
+  --animation-default-double: var(--duration-default-double)
+    var(--cubic-default);
+  --animation-default-onehalf: var(--duration-default-onehalf)
+    var(--cubic-default);
+  --duration-default-quarter: 0.2s;
+  --animation-default: var(--duration-default) var(--cubic-default);
+  --animation-default-half: var(--duration-default-half) var(--cubic-default);
+  --animation-default-quarter: var(--duration-default-quarter)
+    var(--cubic-default);
+  --animation-ease: 0.2s ease;
+  --animation-ease-double: 0.4s ease;
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --duration-default: 0.735s;
+  --animation-default: var(--duration-default) var(--cubic-default);
+  --one-col-width: calc(8.33% - var(--gap-size));
+  --three-col-width: calc(25% - 2 * var(--gap-size));
+  --color-ignore-neutral-100: #ffffff;
+  --color-ignore-neutral-200: #efeeec;
+  --color-ignore-neutral-300: #e3e1de;
+  --color-ignore-neutral-400: #d0cfcd;
+  --color-ignore-neutral-500: #818180;
+  --color-ignore-neutral-600: #2c2c2c;
+  --color-ignore-neutral-700: #1f1f1f;
+  --color-ignore-neutral-800: #131313;
+  --color-ignore-neutral-900: #000000;
+  --color-ignore-white: var(--color-ignore-neutral-100);
+  --color-ignore-light: var(--color-ignore-neutral-200);
+  --color-ignore-dark: var(--color-ignore-neutral-800);
+  --color-ignore-black: var(--color-ignore-neutral-900);
+  --color-ignore-rgb-dark: 19, 19, 19;
+  --color-ignore-rgb-light: 239, 238, 236;
+  --color-ignore-rgb-black: 0, 0, 0;
+  --color-ignore-rgb-white: 255, 255, 255;
+}
+
 body {
   background-color: black;
   box-sizing: border-box;
@@ -5,115 +58,88 @@ body {
   padding: 0;
 }
 
-.testimonial-container {
-  background-color: black;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  overflow: hidden;
+.divider.testimonials {
+  opacity: 0.25;
+  max-width: 22.5em;
 }
 
-.avatar-swiper {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 55px;
-  gap: 20px;
-}
-.avatar-slide {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer !important;
-}
-.avatar-slide img {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer !important;
-}
-
-.avatar-slide:hover {
-  border-color: orange;
-}
-.testimonial-card {
-  background: #111;
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 270px !important;
-  height: 240px !important;
-}
-.title {
-  color: #efeeec;
-  font-size: 54px;
-  font-weight: 500;
-  margin: 0px 0px 60px 0px;
-  line-height: 0.95;
-  letter-spacing: -0.01em;
-  text-align: center;
-  max-width: 690px;
-}
-.testimonial-swiper {
-  margin: 0px 15px !important;
-  display: flex;
-  gap: 24px;
-}
-.testimonial-text {
-  font-size: 16px;
-  color: #efeeec;
-  line-height: 1.4;
-  text-align: left;
-}
-
-.testimonial-user {
-  display: flex;
-  align-items: center;
-}
-
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 10px;
-}
-
-.user-avatar img {
+.divider {
+  background-image: linear-gradient(
+    90deg,
+    #efeeec00,
+    #efeeec 25% 75%,
+    #efeeec00
+  );
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 1px;
 }
 
-.user-info {
-  text-align: left;
-}
-
-.user-name {
-  font-weight: bold;
-  margin: 0;
-}
-
-.user-role {
-  font-size: 14px;
-  color: gray;
-  margin: 7px 0px 0px 0px;
-  text-transform: uppercase;
-  font-family: RM Mono, sans-serif !important;
-  font-size: 0.75em;
-  font-weight: 400;
+.hMedium {
+  font-size: 41.775px;
+  font-weight: 500;
   line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0;
 }
+
+element.style {
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(28.6461%, 0%) translate3d(0px, 0px, 0px);
+  touch-action: pan-y;
+}
+.testimonial-row:has(.testimonial-item.active) .testimonial-item:not(.active) {
+  opacity: 0.45;
+}
+.testimonial-item {
+  padding: calc(0.5em + 1px);
+  outline: 1px solid #ff4c24;
+  outline-offset: calc(0.5em / -1);
+  mask: conic-gradient(at 20px 20px, #0000 75%, #000 0) 0 0 / calc(100% - 20px)
+      calc(100% - 20px),
+    linear-gradient(#000 0 0) content-box;
+
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(28.6461%, 0%) translate3d(0px, 0px, 0px);
+  touch-action: pan-y;
+}
+.testimonial-slide {
+  grid-column-gap: 42xp;
+  grid-row-gap: 42px;
+  border: 1px solid #efeeec14;
+  border-radius: 0.5em;
+  background-color: #efeeec0f;
+  transform: scale3d(1none, 1none, 1none);
+  transform-style: preserve-3d;
+  flex-flow: column;
+  flex: none;
+  width: 301px;
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 17px;
+  transition: opacity 0.25s;
+  display: flex;
+  position: relative;
+  /* opacity: 0.5; */
+}
+[data-slider="slide"]::after {
+  content: "";
+  position: absolute;
+  inset: calc(0.5em * -1);
+  z-index: 1;
+  opacity: 0;
+  padding: calc(0.5em + 1px);
+  outline: 1px solid #ff4c24;
+  outline-offset: calc(0.5em / -1);
+  mask: conic-gradient(at 1em 1em, #0000 75%, #000 0) 0 0 / calc(100% - 1em)
+      calc(100% - 1em),
+    linear-gradient(#000 0 0) content-box;
+  transition: all 0.4s cubic-bezier(0.65, 0.05, 0, 1);
+}
+
 .overlay {
   position: fixed;
   top: 0;
@@ -227,17 +253,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .testimonial-swiper {
-    flex-direction: column !important;
-    overflow: hidden !important;
-    gap: 20px !important;
-  }
-  .testimonial-swiper {
-    margin: 0 !important;
-  }
-  .title {
-    font-size: 45px;
-  }
   .lk-participant-media-video {
     height: 400px !important;
   }
